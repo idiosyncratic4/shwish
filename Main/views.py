@@ -70,6 +70,14 @@ def signup_complete(user_id):
 def index2():
     return render_template('index2.html')
 
+@app.route('/voice')
+def voice():
+    return render_template('voice.html')
+
+@app.route('/payment')
+def payment():
+    return render_template('payment.html')
+
 @app.route('/register', methods=['POST'])
 def register_by_ui_path():
     name = request.form['name']

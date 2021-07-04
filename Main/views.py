@@ -56,16 +56,19 @@ def signup_id(user_id):
     return render_template('signup.html', user_id=user_id)
 
 
-@app.route('/signup-complete/<user_id>', methods=['POST'])
+@app.route('/signup-complete/<user_id>', methods=['GET'])
 def signup_complete(user_id):
-    if request.method == 'POST':
-        file = request.files['webcam']
-        if file:
-            user = User.get_by_user_id(user_id)
-            register_face([file.read()], user.username)
-            return render_template('index.html')
-        else:
-            return 'NOT OK', 500
+    # if request.method == 'POST':
+    #     file = request.files['webcam']
+    #     if file:
+    #         user = User.get_by_user_id(user_id)
+    #         register_face([file.read()], user.username)
+    return render_template('index2.html')
+        # else:
+        #     return render_template('index.html')
+@app.route('/index2')
+def index2():
+    return render_template('index2.html')
 
 @app.route('/register', methods=['POST'])
 def register_by_ui_path():

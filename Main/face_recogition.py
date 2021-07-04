@@ -11,21 +11,10 @@ from models import User
 from app import db
 
 
-def set_environ_variables():
-    env_file = '.env'
-    with open(env_file) as envfile:
-        for line in envfile:
-            data = line.split('=')
-            os.environ[data[0].strip()] = data[1].strip()
-
-set_environ_variables()
-
 PERSON_GROUP_ID = 'all-people'
 
-face_api_key = os.environ.get('FACE_SUBSCRIPTION_KEY', None)
-assert face_api_key
-face_api_endpoint = os.environ.get('FACE_ENDPOINT', None)
-assert face_api_endpoint
+face_api_key = "e7d7c8901f7145d2a176a7616322747b"
+face_api_endpoint = "https://shwish.cognitiveservices.azure.com/"
 
 credentials = CognitiveServicesCredentials(face_api_key)
 face_client = FaceClient(face_api_endpoint, credentials=credentials)

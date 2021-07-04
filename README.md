@@ -7,7 +7,7 @@ Video Link:
 
 ## Project Description
 
-In today's pandemic hit world when everyone is medium of shopping has switched to online, primitive methods of checkouts have more than 3-minutes of waiting time.
+In today's pandemic hit world when everyone's medium of shopping has switched to online, primitive methods of checkouts have more than 3-minutes of waiting time.
 We aim to significantly shorten this time by processing payments using user's voice profile, making it happen in a fraction of a minute. Furthermore, with the help of Azure Face API, we aim to authenticate users using facial recognition.
 
 

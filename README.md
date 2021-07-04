@@ -1,13 +1,15 @@
-FaceTag - Seamless Transportation
+Shwish
 ===
 
 ## Pitch
 
-https://youtu.be/NaYreS0sTzc
+Video Link: 
 
 ## Project Description
 
-In today's increasingly populated world, it has become increasingly difficult to travel using public transports due to the bottlenecks it consists when people are moving in and out of the system.  We are focusing on building a solution for bottlenecked gateways in the daily commute; one such location would be the entry and exit points at metro stations. The idea is to use Azure's Cognitive API (facial recognition) to have an automated payment system for public transports (using an online wallet). Imagine FastTag-based tollways for human faces without the need for any hardware / physical cards. You can simply walk in; we'll scan the face and deduct the costs from your wallet.  This enables the people to just walk in, without any additional hardware (and/or RFID cards) and move through the public transport system without any wait times or unnecessary issues.
+In today's pandemic hit world when everyone is medium of shopping has switched to online, primitive methods of checkouts have more than 3-minutes of waiting time.
+We aim to significantly shorten this time by processing payments using user's voice profile, making it happen in a fraction of a minute. Furthermore, with the help of Azure Face API, we aim to authenticate users using facial recognition.
+
 
 ## Instructions to run
 
@@ -15,52 +17,21 @@ In today's increasingly populated world, it has become increasingly difficult to
 
 * Execute ```python3 app.py``` to start the app
 
-* Head over to localhost, you will be prompted with a signup page, enter any username and password. You may be required to login using these later on.
 
-* Look into the camera, and register your face with the system.
+## User Authentication and Identification
 
-* Head over to ```localhost/camera-in```, the url for any camera at the check in stage in the public transport system. Once you're recognised, close the tab.
-
-* Open ```localhost/camera-out``` and repeat the process. You will be showed as checked-out in the system and money will be deducted from your wallet.
-
-* Check ```localhost/dashboard``` to see the updated balance.
-
-
-
-## Libraries Used
-
-### facial recognition
-1. Azure Face API module - for better and easy face recognition
-2. OpenCV
-3. Flask server
+1. Azure Face API module - for better and easy user authentication
+2. Azure Speaker Recognition API module - for better and easy user identification
+3. Flask
 4. Python
+5. CosmosDB
+6. Javascript
+7. Azure VM
 
+## Future Scope
 
-User story
----
-```gherkin=
-Feature: Facial Recognition
+* Making retail a more transparent and safer ground.
 
-  # The first example has two steps
-  Scenario: User enters into X metro station
-    Then the facial recognition platform looks for the user in database.
-    Then An api is called for the transection of blockchain contract to init
-    
+* Provide a supply chain to manage customer demands.
 
-  # The second example has three steps
-  Scenario: User Exits from Y metro station
-    Then The facial recognition looks for the user in database
-    Then it calculates the fare for the distance travelled 
-    Then An api is called for the deduction of fare from the wallet
-```
-
-Future Additions
----
-```gherkin=
-Density check in a station
-
-  # Future addition would be to add density check of people using azure object detection
-    in all metro stations to help with the wait time of the metro in a perticular station 
-    at a perticular time based on the density and azure analitics
-
-```
+* Add an item recommendation system to advise customers on item needs based on buying trends.

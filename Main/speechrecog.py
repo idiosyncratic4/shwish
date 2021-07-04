@@ -17,6 +17,8 @@ def dosomething():
     print(json_data['profileId'])
     return "abcd"
 
+
+
 def sendRequest():
 
     requestUrl = "https://westus.api.cognitive.microsoft.com/speaker/verification/v2.0/text-dependent/profiles/"

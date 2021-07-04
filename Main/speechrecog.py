@@ -29,6 +29,14 @@ def verificationtrain():
     print(json_data)
     return "abcd"
 
+@app.route('/identify',methods=['GET','POST'])
+@cross_origin(supports_credentials=True)
+def identification():
+    response = identify(path,profileID)
+    json_data = json.loads(response.text)
+    print(json_data)
+    return "abcd"
+
 
 
 def sendRequest():
@@ -64,8 +72,9 @@ def getResponse(path,profileID):
     response = requests.request("POST",requestUrl.format(profileID),data=w,headers = headers)
     return response
 
+
 def identify(path,profileID):
-    requestUrl = "https://westus.api.cognitive.microsoft.com/speaker/verification/v2.0/text-dependent/profiles/{profileID}/verify"
+    requestUrl = "https://westus.api.cognitive.microsoft.com/speaker/verification/v2.0/text-dependent/profiles/{0}/verify"
 
     headers =  {
     "Content-Type" : "audio/wav",
@@ -73,8 +82,9 @@ def identify(path,profileID):
     }
 
     # this was a file which was on my local machine so change it accordingly
-    body = open(path ,"rb").read()
-    response = requests.request("POST",requestUrl,headers = headers,data=body)
+    w = open(path, 'rb')
+
+    response = requests.request("POST",requestUrl.format(profileID),data=w,headers = headers)
     return response
 
 

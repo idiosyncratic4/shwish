@@ -63,7 +63,7 @@ def signup_id(user_id):
         return render_template('index2.html', user_id=user_id)
 
 
-@app.route('/signup-complete/<user_id>', methods=['GET'])
+@app.route('/signup-complete/<user_id>', methods=['GET', 'POST'])
 def signup_complete(user_id):
     # if request.method == 'POST':
     #     file = request.files['webcam']
@@ -73,6 +73,19 @@ def signup_complete(user_id):
     return render_template('index2.html')
         # else:
         #     return render_template('index.html')
+
+@app.route("/audio_get", methods=['POST', 'GET'])
+def audio_get():
+    if request.method == "POST":
+        f = request.files['audio_data']
+        with open('audio.wav', 'wb') as audio:
+            f.save(audio)
+        print('file uploaded successfully')
+
+        return "file found"
+    else:
+        return "file not found"
+        
 @app.route('/index2')
 def index2():
     return render_template('index2.html')
@@ -162,18 +175,6 @@ def identification():
     json_data = json.loads(response.text)
     print(json_data)
     return "abcd"
-
-@app.route("/audio_get", methods=['POST', 'GET'])
-def audio_get():
-    if request.method == "POST":
-        f = request.files['audio_data']
-        with open('audio.wav', 'wb') as audio:
-            f.save(audio)
-        print('file uploaded successfully')
-
-        return "file found"
-    else:
-        return "file not found"
 
 def sendRequest():
 

@@ -12,7 +12,7 @@ from face_recogition import register_face, find_person
 import requests
 
 path="uploads/record.wav"
-
+profileid_dict = {}
 
 @app.route('/')
 def index():
@@ -54,7 +54,9 @@ def signup():
 
 @app.route('/signup/<user_id>', methods=['GET'])
 def signup_id(user_id):
-    return render_template('signup.html', user_id=user_id)
+    if profileid_dict[user_id]
+    dosomething()
+    return render_template('voice.html', user_id=user_id)
 
 
 @app.route('/signup-complete/<user_id>', methods=['GET'])
@@ -131,6 +133,7 @@ def outputstream():
             return 'OK', 200
         else:
             return 'NOT OK', 500
+
 
 
 @app.route('/home',methods=['GET','POST'])

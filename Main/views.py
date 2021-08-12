@@ -149,13 +149,10 @@ def dosomething():
     global profileID
     profileID= json_data['profileId']
 
-@app.route('/verify',methods=['GET','POST'])
-@cross_origin(supports_credentials=True)
 def verificationtrain():
     response = getResponse(path,profileID)
     json_data = json.loads(response.text)
     print(json_data)
-    return "abcd"
 
 @app.route('/identify',methods=['GET','POST'])
 @cross_origin(supports_credentials=True)

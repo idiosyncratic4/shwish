@@ -11,7 +11,7 @@ import base64
 from face_recogition import register_face, find_person
 import requests
 
-path="uploads/record.wav"
+path="audio.wav"
 profileID_dict={}
 
 
@@ -63,16 +63,17 @@ def signup_id(user_id):
         return render_template('index2.html', user_id=user_id)
 
 
-@app.route('/signup-complete/<user_id>', methods=['GET'])
+@app.route('/signup-complete/<user_id>', methods=['GET','POST'])
 def signup_complete(user_id):
-    # if request.method == 'POST':
-    #     file = request.files['webcam']
-    #     if file:
-    #         user = User.get_by_user_id(user_id)
-    #         register_face([file.read()], user.username)
-    return render_template('index2.html')
-        # else:
-        #     return render_template('index.html')
+    if request.method == "POST":
+        f = request.files['audio_data']
+        with open('audio.wav', 'wb') as audio:
+            f.save(audio)
+        for _ in range(3):
+            verificationtrain()
+        return render_template('index2.html')
+
+
 @app.route('/index2')
 def index2():
     return render_template('index2.html')
@@ -162,18 +163,6 @@ def identification():
     json_data = json.loads(response.text)
     print(json_data)
     return "abcd"
-
-@app.route("/audio_get", methods=['POST', 'GET'])
-def audio_get():
-    if request.method == "POST":
-        f = request.files['audio_data']
-        with open('audio.wav', 'wb') as audio:
-            f.save(audio)
-        print('file uploaded successfully')
-
-        return "file found"
-    else:
-        return "file not found"
 
 def sendRequest():
 

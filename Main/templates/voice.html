@@ -1,40 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Recording Verification</title>
-  <link rel="stylesheet" href="../static/css/voice.css">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Simple Recorder.js demo with record, stop and pause - addpipe.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <h1>Simple Recorder.js demo</h1>
 
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<div class="app">
-  <select name="" id="micSelect"></select>
-
-  <select id="visSelect">
-    <option value="frequencybars">Bar</option>
-    <option value="sinewave">Wave</option>
-    <option value="circle">Circle</option>
-  </select>
-
-  <a id="download" >Download</a>
-
-  <div class="audio-controls">
-    <p>My Voice is my passport, Verify Me</p>
-  </div>
-  
-  <div class="audio-controls">
-    <button id="record">Record</button>
-    <button id="stop">Stop</button>
-    <button type=button value="Verify-Me" onClick="window.location.href='/payment'">Verify Me</button>
-    <audio id="audio" controls></audio>
-  </div>
-
-  <div id="msg">Recording...</div>
-  <canvas width="500" height="300"></canvas>
-<div>
-<!-- partial -->
-  <script  src="../static/js/script.js"></script>
-
-</body>
+    <div id="controls">
+     <button id="recordButton">Record</button>
+     <button id="pauseButton" disabled>Pause</button>
+     <button id="stopButton" disabled>Stop</button>
+    </div>
+    <div id="formats">Format: start recording to see sample rate</div>
+    <p><strong>Recordings:</strong></p>
+    <ol id="recordingsList"></ol>
+    <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+    <script src="../static/js/script.js"></script>
+  </body>
 </html>

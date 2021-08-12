@@ -9,6 +9,7 @@ from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
 import base64
 from face_recogition import register_face, find_person
+import requests
 
 path="uploads/record.wav"
 
@@ -158,7 +159,17 @@ def identification():
     print(json_data)
     return "abcd"
 
+@app.route("/audio_get", methods=['POST', 'GET'])
+def audio_get():
+    if request.method == "POST":
+        f = request.files['audio_data']
+        with open('audio.wav', 'wb') as audio:
+            f.save(audio)
+        print('file uploaded successfully')
 
+        return "file found"
+    else:
+        return "file not found"
 
 def sendRequest():
 

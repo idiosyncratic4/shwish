@@ -183,7 +183,7 @@ def getResponse(path,profileID):
     requestUrl = "https://westus.api.cognitive.microsoft.com/speaker/verification/v2.0/text-dependent/profiles/{0}/enrollments"
 
     headers = {
-    "Content-Type" : "audio/wav",
+    "Content-Type" : "audio/wav; codecs=audio/pcm; samplerate=16000",
     "Ocp-Apim-Subscription-Key" : "fe29f57488b04a81a330347d50b1a599",
     }
     w = open(path, 'rb')
@@ -200,7 +200,7 @@ def identify(path,profileID):
     requestUrl = "https://westus.api.cognitive.microsoft.com/speaker/verification/v2.0/text-dependent/profiles/{0}/verify"
 
     headers =  {
-    "Content-Type" : "audio/wav",
+    "Content-Type" : "audio/wav; codecs=audio/pcm; samplerate=16000",
     "Ocp-Apim-Subscription-Key" : "fe29f57488b04a81a330347d50b1a599",
     }
 

@@ -12,7 +12,8 @@ from face_recogition import register_face, find_person
 import requests
 
 path="uploads/record.wav"
-profileid_dict = {}
+profileID_dict={}
+
 
 @app.route('/')
 def index():
@@ -54,9 +55,12 @@ def signup():
 
 @app.route('/signup/<user_id>', methods=['GET'])
 def signup_id(user_id):
-    if profileid_dict[user_id]
-    dosomething()
-    return render_template('voice.html', user_id=user_id)
+    if user_id not in profileID_dict:
+        dosomething()
+        profileID_dict[user_id]=profileID
+        return render_template('voice.html', user_id=user_id)
+    else:
+        return render_template('index2.html', user_id=user_id)
 
 
 @app.route('/signup-complete/<user_id>', methods=['GET'])
@@ -136,15 +140,12 @@ def outputstream():
 
 
 
-@app.route('/home',methods=['GET','POST'])
-@cross_origin(supports_credentials=True)
 def dosomething():
     response = sendRequest()
     json_data = json.loads(response.text)
     print(json_data['profileId'])
     global profileID
     profileID= json_data['profileId']
-    return "abcd"
 
 @app.route('/verify',methods=['GET','POST'])
 @cross_origin(supports_credentials=True)

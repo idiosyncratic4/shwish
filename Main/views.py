@@ -75,6 +75,17 @@ def signup_complete():
     else:
         return "ERROR with Voice Profile"
 
+@app.route('/audio_get2', methods=['GET','POST'])
+def indetificationVoice():
+    if request.method == "POST":
+        f = request.files['audio_data']
+        with open('audio.wav', 'wb') as audio:
+            f.save(audio)
+        identification()
+        return render_template('payment.html')
+    else:
+        return "ERROR with Voice Profile"
+
 @app.route('/index2')
 def index2():
     return render_template('index2.html')
@@ -82,6 +93,10 @@ def index2():
 @app.route('/voice')
 def voice():
     return render_template('voice.html')
+
+@app.route('/voice2')
+def voice2():
+    return render_template('voice2.html')
 
 @app.route('/payment')
 def payment():
@@ -154,13 +169,10 @@ def verificationtrain():
     json_data = json.loads(response.text)
     print(json_data)
 
-@app.route('/identify',methods=['GET','POST'])
-@cross_origin(supports_credentials=True)
 def identification():
     response = identify(path,profileID)
     json_data = json.loads(response.text)
     print(json_data)
-    return "abcd"
 
 def sendRequest():
 

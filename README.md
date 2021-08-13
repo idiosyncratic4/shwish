@@ -20,13 +20,12 @@ We aim to significantly shorten this time by processing payments using user's vo
 
 ## User Authentication and Identification
 
-1. Azure Face API module - for better and easy user authentication
-2. Azure Speaker Recognition API module - for better and easy user identification
-3. Flask
-4. Python
-5. CosmosDB
-6. Javascript
-7. Azure VM
+1. Azure Speaker Recognition API module - for better and easy user identification
+2. Flask
+3. Python
+4. CosmosDB
+5. Javascript
+6. Azure VM
 
 ## Future Scope
 

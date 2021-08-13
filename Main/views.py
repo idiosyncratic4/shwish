@@ -71,7 +71,7 @@ def signup_complete():
             f.save(audio)
         for _ in range(3):
             verificationtrain()
-        return render_template('index2.html')
+        return jsonify({"redirect": "/index2"})
     else:
         return "ERROR with Voice Profile"
 
